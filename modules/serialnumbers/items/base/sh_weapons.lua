@@ -75,12 +75,6 @@ ITEM.functions.EquipUn = {
         else
             print(Format("[Lilia] Weapon %s does not exist!", item.class))
         end
-
-        if client:hasRagdoll() then
-            client:notify("You cannot do this while ragdolled.")
-            return false
-        end
-
         client:EmitSound(item.unequipSound or "items/ammo_pickup.wav", 80)
         client.carryWeapons[item.weaponCategory] = nil
         item:setData("equip", nil)

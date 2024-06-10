@@ -42,13 +42,13 @@ net.Receive("SerialNumbers.FinishSerialScratch", function(len, ply)
     if item and scratch then
         if item.isWeapon then
             item:setData("SerialNumber_Scratched", true)
-            ply:notify("Die Seriennummer wurde erfolgreich entfernt.")
+            ply:notify("The serial number was successfully removed.")
 
             local fileItemFound, fileItemId = MODULE:FindFileItem(ply)
             if fileItemFound then
                 local fileItem = lia.item.instances[fileItemId]
                 fileItem:remove() 
-                ply:notify("Die Feile wurde aus deinem Inventar entfernt.")
+                ply:notify("The file has been removed from your inventory.")
             else
                 ply:notify("No file item found in inventory.")
             end
@@ -122,7 +122,7 @@ function InitiateSerialScratch(player, item)
         net.WriteTable(validItems)
         net.Send(player)
     else
-        player:notify("Du hast keine Waffe im Inventar")
+        player:notify("You have no weapon in your inventory")
     end
 end
 
